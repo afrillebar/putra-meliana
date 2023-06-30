@@ -65,7 +65,8 @@
         }
 
         #exampleModal .modal-content {
-            background: url('assets/images/background.jpg') no-repeat top / cover;
+            /* background: url('assets/images/background.jpg') no-repeat top / cover; */
+            background-color: #1C2536;
             height: 100vh;
             width: 100%;
             margin: 0;
@@ -481,7 +482,27 @@
         </div>
     </div>
 
-    <div class="modal" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
+            <div class="modal-content m-0 p-0" style="background-color: #111111;">
+                <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
+                    <div class="text-center">
+                            <h1 class="font-estetik mb-4" style="font-size: 2.2rem;">The Wedding Of</h1>
+                        <div class="cropper border border-3 border-light shadow mb-4 mx-auto">
+                            <img src="assets/images/pp.jpg" alt="bg">
+                        </div>
+                        <h1 class="font-estetik mt-4" style="font-size: 3.5rem;"><strong>Putra & Meliana</strong></h1>
+                        <div id="namatamu"></div>
+                        <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="buka()">
+                            <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal" id="exampleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
             <div class="modal-content m-0 p-0">
                 <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
@@ -503,7 +524,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha256-qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>

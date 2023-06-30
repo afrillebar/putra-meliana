@@ -61,7 +61,27 @@
             #exampleModal .lazy-load {
                 background-size: contain;
                 background-position: center center;
+                position: relative;
+                overflow: hidden;
             }
+
+            #exampleModal .lazy-load::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: transparent;
+                filter: blur(10px);
+                z-index: -1;
+                transition: filter 0.3s;
+            }
+
+            #exampleModal .lazy-load.loaded::before {
+                filter: none;
+            }
+
         }
 
         #exampleModal .lazy-load {
@@ -71,7 +91,29 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
+
+        #exampleModal .lazy-load::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent url('assets/images/background.jpg') no-repeat top / cover;
+            filter: blur(10px);
+            z-index: -1;
+            transition: filter 0.3s;
+        }
+
+        #exampleModal .lazy-load.loaded::before {
+            filter: none;
+        }
+
       </style>
 </head>
 <!-- <body data-email="user@example.com" data-password="12345678" data-url="https://backend-putra-meliana.vercel.app" style="background-image: url('assets/images/background-body.png');background-size: cover;background-repeat: no-repeat;background-position: center center;margin: 0;padding: 0;"> -->
@@ -264,13 +306,13 @@
 
                         <div class="carousel-inner rounded-4">
                             <div class="carousel-item active">
-                                <img src="assets/images/9.jpg" class="d-block w-100">
+                                <img src="assets/images/9.jpg" class="d-block w-100" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/7.jpg" class="d-block w-100">
+                                <img src="assets/images/7.jpg" class="d-block w-100" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="assets/images/6.jpg" class="d-block w-100">
+                                <img src="assets/images/6.jpg" class="d-block w-100" loading="lazy">
                             </div>
                         </div>
 

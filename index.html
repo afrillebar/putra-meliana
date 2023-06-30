@@ -99,24 +99,6 @@
             align-items: center;
             position: relative;
         }
-
-        #exampleModal .lazy-load::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: transparent url('assets/images/background.jpg') no-repeat top / cover;
-            filter: blur(10px);
-            z-index: -1;
-            transition: filter 0.3s;
-        }
-
-        #exampleModal .lazy-load.loaded::before {
-            filter: none;
-        }
-
       </style>
 </head>
 <!-- <body data-email="user@example.com" data-password="12345678" data-url="https://backend-putra-meliana.vercel.app" style="background-image: url('assets/images/background-body.png');background-size: cover;background-repeat: no-repeat;background-position: center center;margin: 0;padding: 0;"> -->

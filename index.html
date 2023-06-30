@@ -58,14 +58,15 @@
                 right: -20px;
                 height: 200px;
             }
-            #exampleModal .modal-content {
+            #exampleModal .lazy-load {
                 background-size: contain;
                 background-position: center center;
             }
         }
 
-        #exampleModal .modal-content {
+        #exampleModal .lazy-load {
             background: url('assets/images/background.jpg') no-repeat top / cover;
+            /* background-color: #111111; */
             height: 100vh;
             width: 100%;
             margin: 0;
@@ -73,6 +74,7 @@
         }
       </style>
 </head>
+<!-- <body data-email="user@example.com" data-password="12345678" data-url="https://backend-putra-meliana.vercel.app" style="background-image: url('assets/images/background-body.png');background-size: cover;background-repeat: no-repeat;background-position: center center;margin: 0;padding: 0;"> -->
 <body data-email="user@example.com" data-password="12345678" data-url="https://backend-putra-meliana.vercel.app" style="background-color: #111111">
     <nav class="navbar navbar-dark bg-dark navbar-expand fixed-bottom rounded-top-4 p-0" id="navbar-example2">
         <ul class="navbar-nav nav-justified w-100 align-items-center">
@@ -466,21 +468,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalFoto" tabindex="-1" aria-labelledby="modalFotoLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                        <img src="" class="w-100" alt="foto" id="showModalFoto">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
             <div class="modal-content m-0 p-0" style="background-color: #111111;">
@@ -503,7 +490,7 @@
 
     <div class="modal" id="exampleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
-            <div class="modal-content m-0 p-0">
+            <div class="modal-content lazy-load m-0 p-0">
                 <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
                     <div class="text-center">
                         <div style="margin-bottom: 25%;">
@@ -528,6 +515,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha256-qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
     <script src="./js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backgroundColor = '#111111'; // Specify your desired background color
+            var backgroundElement = document.getElementById('background-image');
+            backgroundElement.style.backgroundColor = backgroundColor;
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        var modalContent = document.querySelector('#exampleModal .modal-content');
+        var lazyLoadClass = 'lazy-load';
+
+        function lazyLoad() {
+            if (isElementInViewport(modalContent)) {
+            modalContent.classList.add(lazyLoadClass);
+            window.removeEventListener('scroll', lazyLoad);
+            }
+        }
+
+        function isElementInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        window.addEventListener('scroll', lazyLoad);
+        lazyLoad(); // Check on initial load
+        });
+
+    </script>
 </body>
 
 </html>
